@@ -43,6 +43,8 @@ public class Location {
 
     @Enumerated
     private LocationType locationType;
+
+
     @JsonIgnore
     @ManyToMany(mappedBy = "locations")
     private List<Plan> plans = new ArrayList<>();

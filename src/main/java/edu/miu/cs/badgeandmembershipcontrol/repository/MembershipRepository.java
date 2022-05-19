@@ -1,6 +1,7 @@
 package edu.miu.cs.badgeandmembershipcontrol.repository;
 
 import edu.miu.cs.badgeandmembershipcontrol.domain.Membership;
+import edu.miu.cs.badgeandmembershipcontrol.domain.MembershipType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -23,7 +24,13 @@ public interface MembershipRepository extends JpaRepository<Membership,Long> {
 
     Optional<List<Membership>> findMembershipsByMember_Id(Long memberId);
 
+
     @Query("select m from Membership m Join m.plan p join p.locations l on l.id=?1")
     Optional<List<Membership>> findMembershipByLocation(Long locationId);
+
+    // return membersMembership to which has the same memberId.
+    Optional<Membership> findMembershipByMember_IdAndMembershipTypeAndPlan_Id(Long memberId, MembershipType membershipType, Long planId);
+
+    Optional<Membership> findMembershipByMember_IdAndPlan_Id(Long MemberId, Long planId);
 
 }

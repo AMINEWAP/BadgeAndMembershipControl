@@ -11,7 +11,6 @@ import java.util.*;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
 @RequiredArgsConstructor
 
 public class Plan {
@@ -31,11 +30,12 @@ public class Plan {
 //    @JsonBackReference(value = "location")
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name="plan_location", joinColumns = {@JoinColumn(name="plan_id")},inverseJoinColumns = {@JoinColumn(name="location_id")})
+    @ToString.Exclude
     private List<Location> locations = new ArrayList<>();
 
 
 
-/*    @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -46,7 +46,7 @@ public class Plan {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, description);
-    }*/
+    }
 
     public Plan(Long id, String name, String description) {
         this.id = id;
