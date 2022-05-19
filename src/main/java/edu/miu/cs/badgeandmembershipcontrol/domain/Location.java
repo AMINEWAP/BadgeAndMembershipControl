@@ -3,7 +3,9 @@ package edu.miu.cs.badgeandmembershipcontrol.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
@@ -24,6 +26,8 @@ import javax.validation.constraints.NotBlank;
 @Data
 @Entity
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Location {
 
     @Id

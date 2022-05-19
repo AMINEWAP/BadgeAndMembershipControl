@@ -1,7 +1,9 @@
 package edu.miu.cs.badgeandmembershipcontrol.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
@@ -13,6 +15,8 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class TimeSlot {
 
     @Id
@@ -26,5 +30,6 @@ public class TimeSlot {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime endTime;
+
 
 }

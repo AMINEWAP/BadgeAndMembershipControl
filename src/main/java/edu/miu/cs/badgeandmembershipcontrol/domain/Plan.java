@@ -13,6 +13,7 @@ import java.util.*;
 @ToString
 @EqualsAndHashCode
 @RequiredArgsConstructor
+
 public class Plan {
 
     @Id
@@ -34,7 +35,7 @@ public class Plan {
 
 
 
-    @Override
+/*    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -44,6 +45,13 @@ public class Plan {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, roles, locations);
+        return Objects.hash(id, name, description);
+    }*/
+
+    public Plan(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
     }
+
 }
